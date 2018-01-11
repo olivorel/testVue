@@ -9,7 +9,13 @@
 <script>
   export default {
     data () {
-      return {}
+      return {
+        donnee: {
+          title: 'Mon super composant',
+          content: 'Je suis utilisable où tu veux!!',
+          question: 'Classe ou pas classe ?'
+        }
+      }
     },
     methods: {},
     components: {}

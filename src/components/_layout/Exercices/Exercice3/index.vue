@@ -32,7 +32,7 @@
             </div>
             <div class="right">
                 <!-- ton code ici -->
-                <span>Mon composant:</span>
+                <h1>Mon composant:</h1>
                 <mycomponent></mycomponent>
             </div>
         </div>
@@ -44,11 +44,11 @@
   export default {
     data () {
       return {
-        donnee: {
-          title: 'Mon super composant',
-          content: 'Je suis utilisable où tu veux!!',
-          question: 'Classe ou pas classe ?'
-        }
+//        donnee: {
+//          title: 'Mon super composant',
+//          content: 'Je suis utilisable où tu veux!!',
+//          question: 'Classe ou pas classe ?'
+//        }
       }
     },
     components: {
