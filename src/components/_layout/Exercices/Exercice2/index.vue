@@ -84,4 +84,8 @@
     .right span {
         cursor: pointer;
     }
+
+    li {
+        list-style:none;
+    }
 </style>
