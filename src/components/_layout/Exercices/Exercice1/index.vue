@@ -95,7 +95,7 @@
         })
       },
       REMOVE_TODO (state, todo) {
-        var todos = state.todos
+        let todos = state.todos
         todos.splice(todos.indexOf(todo), 1)
       },
     },
