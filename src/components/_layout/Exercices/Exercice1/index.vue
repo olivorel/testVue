@@ -39,6 +39,7 @@
                             <ul class="list">
                                 <li v-for="todo in todos" >
                                     <span>{{ todo.text }}</span>
+                                    <button @click="removeTodo(todo)">X</button>
                                 </li>
                             </ul>
                         </div>
@@ -66,6 +67,9 @@
           this.todos.push({text: text})
           this.newTodo = ''
         }
+      },
+      removeTodo: function (todo) {
+        this.todos.splice(this.todos.indexOf(todo), 1)
       }
     }
   }
