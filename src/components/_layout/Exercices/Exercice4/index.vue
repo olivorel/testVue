@@ -34,11 +34,13 @@
     </div>
     <div class="right">
       <!-- ton code ici -->
+      <!--<store></store>-->
     </div>
   </div>
   </div>
 </template>
 <script>
+//  import store from 'Exercice1/index.vue'
 export default {
   data () {
     return {

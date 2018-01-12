@@ -37,7 +37,7 @@
                         <input v-model="newTodo" @keyup.enter="addTodo">
                         <div class="wrap-list">
                             <ul class="list">
-                                <li v-for="todo in todos" >
+                                <li v-for="todo in todos">
                                     <span>{{ todo.text }}</span>
                                     <button @click="removeTodo(todo)">X</button>
                                 </li>
@@ -50,29 +50,64 @@
     </div>
 </template>
 <script>
-  export default {
-    data () {
-      return {
-        todos: [{
-          text: 'ma première chose à faire'
-        }, {
-          text: 'ma deuxième chose à faire'
-        }]
-      }
+  // exercice 1
+  //  export default {
+  //    data () {
+  //      return {
+  //        storage: {
+  //          todos: [{
+  //            text: 'ma première chose à faire'
+  //          }, {
+  //            text: 'ma deuxième chose à faire'
+  //          }]
+  //        }
+  //      }
+  //    },
+  //    methods: {
+  //      addTodo: function () {
+  //        let text = this.newTodo
+  //        if (text) {
+  //          this.todos.push({text: text})
+  //          this.newTodo = ''
+  //        }
+  //      },
+  //      removeTodo: function (todo) {
+  //        this.todos.splice(this.todos.indexOf(todo), 1)
+  //      }
+  //    }
+  //  }
+  // exercice 4
+  Vue.use(Vuex)
+  export default new Vuex.Store({
+    state: {
+      todos: [{
+        text: 'ma première chose à faire'
+      }, {
+        text: 'ma deuxième chose à faire'
+      }],
+      newTodo: ''
     },
-    methods: {
-      addTodo: function () {
-        let text = this.newTodo
-        if (text) {
-          this.todos.push({text: text})
-          this.newTodo = ''
-        }
+    mutations: {
+      ADD_TODO (state) {
+        state.todos.push({
+          body: state.newTodo,
+          completed: false
+        })
       },
-      removeTodo: function (todo) {
-        this.todos.splice(this.todos.indexOf(todo), 1)
+      REMOVE_TODO (state, todo) {
+        var todos = state.todos
+        todos.splice(todos.indexOf(todo), 1)
+      },
+    },
+    actions: {
+      addTodo ({commit}) {
+        commit('ADD_TODO')
+      },
+      removeTodo ({commit}, todo) {
+        commit('REMOVE_TODO', todo)
       }
     }
-  }
+  })
 </script>
 <style>
     .list li {
