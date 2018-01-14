@@ -50,64 +50,62 @@
     </div>
 </template>
 <script>
-  // exercice 1
-  //  export default {
-  //    data () {
-  //      return {
-  //        storage: {
-  //          todos: [{
-  //            text: 'ma première chose à faire'
-  //          }, {
-  //            text: 'ma deuxième chose à faire'
-  //          }]
-  //        }
-  //      }
-  //    },
-  //    methods: {
-  //      addTodo: function () {
-  //        let text = this.newTodo
-  //        if (text) {
-  //          this.todos.push({text: text})
-  //          this.newTodo = ''
-  //        }
-  //      },
-  //      removeTodo: function (todo) {
-  //        this.todos.splice(this.todos.indexOf(todo), 1)
-  //      }
-  //    }
-  //  }
-  // exercice 4
-  Vue.use(Vuex)
-  export default new Vuex.Store({
-    state: {
-      todos: [{
-        text: 'ma première chose à faire'
-      }, {
-        text: 'ma deuxième chose à faire'
-      }],
-      newTodo: ''
-    },
-    mutations: {
-      ADD_TODO (state) {
-        state.todos.push({
-          body: state.newTodo,
-          completed: false
-        })
+//   exercice 1
+    export default {
+      data () {
+        return {
+          todos: [{
+            text: 'ma première chose à faire'
+          }, {
+            text: 'ma deuxième chose à faire'
+          }]
+        }
       },
-      REMOVE_TODO (state, todo) {
-        let todos = state.todos
-        todos.splice(todos.indexOf(todo), 1)
-      },
-    },
-    actions: {
-      addTodo ({commit}) {
-        commit('ADD_TODO')
-      },
-      removeTodo ({commit}, todo) {
-        commit('REMOVE_TODO', todo)
+      methods: {
+        addTodo: function () {
+          let text = this.newTodo
+          if (text) {
+            this.todos.push({text: text})
+            this.newTodo = ''
+          }
+        },
+        removeTodo: function (todo) {
+          this.todos.splice(this.todos.indexOf(todo), 1)
+        }
       }
     }
-  })
+  // exercice 4
+//  Vue.use(Vuex)
+//  export default new Vuex.Store({
+//    state: {
+//      todos: [{
+//        text: 'ma première chose à faire'
+//      }, {
+//        text: 'ma deuxième chose à faire'
+//      }],
+//      newTodo: ''
+//    },
+//    mutations: {
+//      ADD_TODO (state) {
+//        state.todos.push({
+//          body: state.newTodo,
+//          completed: false
+//        })
+//      },
+//      REMOVE_TODO (state, todo) {
+//        let todos = state.todos
+//        todos.splice(todos.indexOf(todo), 1)
+//      },
+//    },
+//    actions: {
+//      addTodo ({commit}) {
+//        commit('ADD_TODO')
+//      },
+//      removeTodo ({commit}, todo) {
+//        commit('REMOVE_TODO', todo)
+//      }
+//    }
+//  })
 </script>
 <style>
     .list li {
